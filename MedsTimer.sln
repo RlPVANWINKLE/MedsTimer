@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31611.283
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedsTimer", "MauiApp1\MedsTimer.csproj", "{330A42E5-3B57-4A45-B674-C5F6A901C3F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{9C5F5FCB-BC2D-49A7-85BE-4E9B90A22AA8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{330A42E5-3B57-4A45-B674-C5F6A901C3F9} = {330A42E5-3B57-4A45-B674-C5F6A901C3F9}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{330A42E5-3B57-4A45-B674-C5F6A901C3F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{330A42E5-3B57-4A45-B674-C5F6A901C3F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{330A42E5-3B57-4A45-B674-C5F6A901C3F9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{330A42E5-3B57-4A45-B674-C5F6A901C3F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{330A42E5-3B57-4A45-B674-C5F6A901C3F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{330A42E5-3B57-4A45-B674-C5F6A901C3F9}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{9C5F5FCB-BC2D-49A7-85BE-4E9B90A22AA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C5F5FCB-BC2D-49A7-85BE-4E9B90A22AA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C5F5FCB-BC2D-49A7-85BE-4E9B90A22AA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C5F5FCB-BC2D-49A7-85BE-4E9B90A22AA8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61F7FB11-1E47-470C-91E2-47F8143E1572}
+	EndGlobalSection
+EndGlobal

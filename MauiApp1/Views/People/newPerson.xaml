@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MedsTimer.Views.People.newPerson"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
+             Title="newPerson">
+
+    <ScrollView>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+            <StackLayout Orientation="Horizontal" BackgroundColor="#3E8EED">
+                <Button Text="{mi:Material Home}" x:Name="Home" HorizontalOptions="StartAndExpand" Margin="10" Clicked="Home_Clicked"/>
+                <!--<Button Text="{mi:Material Save}" x:Name="BtnAddMember" Clicked="BtnAddMember_Clicked" HorizontalOptions="EndAndExpand"/>-->
+            </StackLayout>
+            <StackLayout Orientation="Vertical" VerticalOptions="Start" Margin="15">
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Label Text="First Name" VerticalOptions="Center" WidthRequest="175"/>
+                    <Entry x:Name="MemberFName" Margin="10,0,0,0" VerticalOptions="Center" WidthRequest="150" Text="">
+                    </Entry>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Label Text="Last Name" VerticalOptions="Center" WidthRequest="175"/>
+                    <Entry x:Name="MemberLName" Margin="10,0,0,0" VerticalOptions="Center" WidthRequest="150" Text=""></Entry>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Label Text="Age" VerticalOptions="Center" WidthRequest="175"/>
+                    <Entry x:Name="MemberAge" Margin="10,0,0,0" VerticalOptions="Center" WidthRequest="150" Text="">
+                    </Entry>
+                </HorizontalStackLayout>
+                <Button Text="Save" x:Name="BtnAddMember" Clicked="BtnAddMember_Clicked" HorizontalOptions="CenterAndExpand" WidthRequest="175" Margin="0,15,0,0"/>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
+             x:Class="MedsTimer.Views.Meds.AddMedication"
+             Title="Add Medication">
+    <ScrollView>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+            <StackLayout Orientation="Horizontal" BackgroundColor="#3E8EED">
+                <Button Text="{mi:Material Home, IconAutoScaling=True}" x:Name="Home" HorizontalOptions="StartAndExpand" Margin="10" Clicked="Home_Clicked"/>
+                <!--<Button Text="{mi:Material Save, IconAutoScaling=True}" x:Name="BtnAddMedication" Clicked="AddMedication_Clicked" HorizontalOptions="EndAndExpand"/>-->
+            </StackLayout>
+            <StackLayout Orientation="Vertical" VerticalOptions="Start" Margin="15">
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Label Text="Medication Name" VerticalOptions="Center" WidthRequest="175"/>
+                    <Entry x:Name="MedicationName" Margin="10,0,0,0" VerticalOptions="Center" WidthRequest="150"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Label Text="Medication Type" VerticalOptions="Center" WidthRequest="175"/>
+                    <Picker
+                        x:Name="TypePicker"
+                        Margin="10,0,0,0"
+                        WidthRequest="150"
+                        Title="Medication Type"
+                        ItemDisplayBinding="{Binding TypeText}" 
+                        SelectedItem="{Binding SelectedType}"
+                        SelectedIndexChanged="TypePicker_SelectedIndexChanged"
+			        />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Label x:Name="lblTAD" Text="How Many Times a Day" VerticalOptions="Center" WidthRequest="175" IsVisible="false"/>
+                    <Picker
+                        x:Name="TimesADay"
+                        Margin="10,0,0,0"
+                        WidthRequest="150"
+                        Title="Times A Day"
+                        ItemDisplayBinding="{Binding Times}" 
+                        SelectedItem="{Binding SelectedTimes}"
+                        SelectedIndexChanged="TimesADay_SelectedIndexChanged"
+                        IsVisible="false"
+			        />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Label x:Name="lblDose1" Text="Dose Time" VerticalOptions="Center" WidthRequest="175" IsVisible="false"/>
+                    <TimePicker x:Name="Dose1" WidthRequest="150" IsVisible="false" Format="t"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Label x:Name="lblDose2" Text="2nd Dose Time" VerticalOptions="Center" WidthRequest="175" IsVisible="false"/>
+                    <TimePicker x:Name="Dose2" WidthRequest="150" IsVisible="false" Format="t"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Label x:Name="lblDose3" Text="3rd Dose Time" VerticalOptions="Center" WidthRequest="175" IsVisible="false"/>
+                    <TimePicker x:Name="Dose3" WidthRequest="150" IsVisible="false" Format="t"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Label x:Name="lblDose4" Text="4th Dose Time" VerticalOptions="Center" WidthRequest="175" IsVisible="false"/>
+                    <TimePicker x:Name="Dose4" WidthRequest="150" IsVisible="false" Format="t"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Label x:Name="lblHO" Text="How Often (hours)" VerticalOptions="Center" WidthRequest="175" IsVisible="false"/>
+                    <Entry x:Name="HowOften" Margin="10,0,0,0" VerticalOptions="Center" WidthRequest="150" IsVisible="false"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Label x:Name="lblTLT" Text="Next Take Time" VerticalOptions="Center" WidthRequest="175" IsVisible="false"/>
+                    <TimePicker x:Name="LastTaken" Margin="10,0,0,0" VerticalOptions="Center" WidthRequest="150" IsVisible="false" Format="t"/>
+                </HorizontalStackLayout>
+            </StackLayout>
+            <Button Text="Save" x:Name="BtnAddMedication" Clicked="AddMedication_Clicked" HorizontalOptions="CenterAndExpand" Margin="0,15,0,0" WidthRequest="175"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

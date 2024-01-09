@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
+             x:Class="MedsTimer.Views.Reporting.Report"
+             Title="Report">
+    <ScrollView>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout x:Name="_Report1" IsVisible="false">
+                <StackLayout Orientation="Horizontal" BackgroundColor="#3E8EED">
+                    <Button Text="{mi:Material ArrowBack, IconAutoScaling=True}" x:Name="Back" HorizontalOptions="StartAndExpand" TextColor="White" Margin="10,0,0,0" Clicked="Back_Clicked"/>
+                </StackLayout>
+                <Label Text="Number of Medications" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" WidthRequest="275" FontSize="Title" Margin="0,10" TextDecorations="Underline" FontAttributes="Bold"></Label>
+                <Border
+                    Stroke="black"
+                    StrokeThickness="2"
+                    HorizontalOptions="Center"
+                    WidthRequest="350"
+                Padding="0,0,0,5"
+                    >
+                    <StackLayout Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="Center">
+                        <HorizontalStackLayout>
+                            <Label x:Name="MemberName" Text="Name" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" WidthRequest="275" FontSize="Title"/>
+                            <Label x:Name="NumberOfMeds" Text="#" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" WidthRequest="75" FontSize="Title"/>
+                        </HorizontalStackLayout>
+                        <CollectionView x:Name="_Medications">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" >
+                                        <Border
+                                                Stroke="black"
+                                                StrokeThickness="2"
+                                                HorizontalOptions="Center"
+                                                WidthRequest="275"
+                                                >
+                                            <Label 
+                                                    FontSize="Subtitle"
+                                                    Text="{Binding MemberName}"
+                                                    VerticalOptions="CenterAndExpand"
+                                                    HorizontalTextAlignment="Center"
+                                                    />
+                                        </Border>
+                                        <Border
+                                                Stroke="black"
+                                                StrokeThickness="2"
+                                                HorizontalOptions="Center"
+                                                WidthRequest="60"
+                                                >
+                                            <Label Text="{Binding Count}"
+                                                   VerticalOptions="CenterAndExpand"
+                                                   HorizontalTextAlignment="Center"
+                                                   FontSize="Subtitle"
+                                                   Margin="3"
+                                                   />
+                                        </Border>
+                                    </StackLayout>
+                                    <!--<VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup Name="CommonStates">
+                                            <VisualState Name="Normal" />
+                                            <VisualState Name="Selected">
+                                                <VisualState.Setters>
+                                                    <Setter Property="BackgroundColor" Value="Transparent" />
+                                                </VisualState.Setters>
+                                            </VisualState>
+
+                                        </VisualStateGroup>-->
+                                    <!--</VisualStateManager.VisualStateGroups>-->
+                                    <!--</Border>-->
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </Border>
+
+            </StackLayout>
+            <StackLayout x:Name="_Report2" IsVisible="false">
+                <StackLayout Orientation="Horizontal" BackgroundColor="#3E8EED">
+                    <Button Text="{mi:Material ArrowBack, IconAutoScaling=True}" HorizontalOptions="StartAndExpand" TextColor="White" Margin="10,0,0,0" Clicked="Back_Clicked"/>
+                </StackLayout>
+                <Label Text="Total of Type" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" WidthRequest="275" FontSize="Title" Margin="0,10" TextDecorations="Underline" FontAttributes="Bold"></Label>
+                <Border
+                    Stroke="black"
+                    StrokeThickness="2"
+                    HorizontalOptions="Center"
+                    WidthRequest="350"
+                Padding="0,0,0,5"
+                    >
+                    <StackLayout Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="Center">
+                        <HorizontalStackLayout>
+                            <Label Text="Type" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" WidthRequest="275" FontSize="Title"/>
+                            <Label Text="#" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" WidthRequest="75" FontSize="Title"/>
+                        </HorizontalStackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" >
+                            <Border
+                                    Stroke="black"
+                                    StrokeThickness="2"
+                                    HorizontalOptions="Center"
+                                    WidthRequest="275"
+                                    >
+                                <Label 
+                                    FontSize="Subtitle"
+                                    Text="Prescriptions"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalTextAlignment="Center"
+                                    />
+                            </Border>
+                            <Border
+                                    Stroke="black"
+                                    StrokeThickness="2"
+                                    HorizontalOptions="Center"
+                                    WidthRequest="60"
+                                    >
+                                <Label x:Name="_pres"
+                                    Text=""
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalTextAlignment="Center"
+                                    FontSize="Subtitle"
+                                    Margin="3"  
+                                    />
+                            </Border>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" >
+                            <Border
+                                    Stroke="black"
+                                    StrokeThickness="2"
+                                    HorizontalOptions="Center"
+                                    WidthRequest="275"
+                                    >
+                                <Label 
+                                    FontSize="Subtitle"
+                                    Text="Cough, Cold, Pain"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalTextAlignment="Center"
+                                    />
+                            </Border>
+                            <Border
+                                    Stroke="black"
+                                    StrokeThickness="2"
+                                    HorizontalOptions="Center"
+                                    WidthRequest="60"
+                                    >
+                                <Label x:Name="_ccp"
+                                    Text=""
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalTextAlignment="Center"
+                                    FontSize="Subtitle"
+                                    Margin="3"       
+                                    />
+                            </Border>
+                        </StackLayout>
+                    </StackLayout>
+                </Border>
+
+            </StackLayout>
+            <StackLayout x:Name="_Report3" IsVisible="false">
+                <StackLayout Orientation="Horizontal" BackgroundColor="#3E8EED">
+                    <Button Text="{mi:Material ArrowBack, IconAutoScaling=True}" HorizontalOptions="StartAndExpand" TextColor="White" Margin="10,0,0,0" Clicked="Back_Clicked"/>
+                </StackLayout>
+                <Label x:Name="_report3Title" Text="" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" WidthRequest="275" FontSize="Title" Margin="0,10" TextDecorations="Underline" FontAttributes="Bold"></Label>
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                    <Label Text="Household Member: " VerticalOptions="Center" FontSize="Large"/>
+                    <Picker x:Name="MemberPicker"
+                            ItemDisplayBinding="{Binding MemberFName}"
+                            SelectedIndex="0"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            FontSize="Large"
+                            SelectedIndexChanged="MemberPicker_SelectedIndexChanged"/>
+                </HorizontalStackLayout>
+                <Border
+                    Stroke="black"
+                    StrokeThickness="2"
+                    HorizontalOptions="Center"
+                    WidthRequest="350"
+                    Padding="0,0,0,5"
+                    x:Name="_report3results"
+                    IsVisible="false"
+                    >
+                    <StackLayout Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="Center">
+                        <HorizontalStackLayout>
+                            <Label Text="Type" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" WidthRequest="275" FontSize="Title"/>
+                            <Label Text="#" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" WidthRequest="75" FontSize="Title"/>
+                        </HorizontalStackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" >
+                            <Border
+                                    Stroke="black"
+                                    StrokeThickness="2"
+                                    HorizontalOptions="Center"
+                                    WidthRequest="275"
+                                    >
+                                <Label 
+                                    FontSize="Subtitle"
+                                    Text="Prescriptions"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalTextAlignment="Center"
+                                    />
+                            </Border>
+                            <Border
+                                    Stroke="black"
+                                    StrokeThickness="2"
+                                    HorizontalOptions="Center"
+                                    WidthRequest="60"
+                                    >
+                                <Label
+                                    x:Name="_report3Count"
+                                    Text=""
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalTextAlignment="Center"
+                                    FontSize="Subtitle"
+                                    Margin="3"         
+                                    />
+                            </Border>
+                        </StackLayout>
+                    </StackLayout>
+                </Border>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

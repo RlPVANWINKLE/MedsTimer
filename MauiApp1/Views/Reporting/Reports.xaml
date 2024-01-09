@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="MedsTimer.Views.Reporting.Reports"
+             Title="Reports">
+    <ScrollView>
+        <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal" BackgroundColor="#3E8EED" VerticalOptions="Start">
+                <Button Text="{mi:Material Home}" x:Name="Home" HorizontalOptions="StartAndExpand" Margin="10" Clicked="Home_Clicked"/>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+                <Label Text="Medication Reporting" FontSize="Title" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" TextDecorations="Underline" Margin="0,10,0,15"/>
+                <Frame Padding="5" BorderColor="Black" CornerRadius="10" Margin="0,0,0,15">
+                    <toolkit:Expander WidthRequest="300">
+                        <toolkit:Expander.Header>
+                            <HorizontalStackLayout>
+                                <Label Text="House Hold Report"
+                                    FontAttributes="Bold"
+                                    FontSize="Medium" 
+                                    WidthRequest="275"/>
+                                <Label Text="{mi:Material ArrowDropDown}" />
+                            </HorizontalStackLayout>
+                        </toolkit:Expander.Header>
+                        <VerticalStackLayout>
+                            <HorizontalStackLayout Padding="0,10,0,0">
+                                <Label Text="Gives a list of each member of the household and the number of medications they currently have on their profile."
+                               WidthRequest="300" />
+                            </HorizontalStackLayout>
+                            <Button Text="{mi:Material RunCircle, IconColor=#3E8EED}" BackgroundColor="White" HorizontalOptions="EndAndExpand" x:Name="HouseHold" Clicked="HouseHold_Clicked"/>
+                        </VerticalStackLayout>
+                    </toolkit:Expander>
+                </Frame>
+                <Frame Padding="5" BorderColor="Black" CornerRadius="10" Margin="0,0,0,15">
+                    <toolkit:Expander WidthRequest="300">
+                        <toolkit:Expander.Header>
+                            <HorizontalStackLayout>
+                                <Label Text="Total Medication Type Report"
+                                    FontAttributes="Bold"
+                                    FontSize="Medium"
+                                    WidthRequest="275"/>
+                                <Label Text="{mi:Material ArrowDropDown}" />
+                            </HorizontalStackLayout>
+                        </toolkit:Expander.Header>
+                        <VerticalStackLayout>
+                            <HorizontalStackLayout Padding="0,10,0,0">
+                                <Label Text="Gives a total count of prescriptions and cough, cold, pain for the entire household."
+                               WidthRequest="300" />
+                            </HorizontalStackLayout>
+                            <Button Text="{mi:Material RunCircle, IconColor=#3E8EED}" BackgroundColor="White" HorizontalOptions="EndAndExpand" x:Name="TotalPresc" Clicked="TotalPresc_Clicked"/>
+                        </VerticalStackLayout>
+
+                    </toolkit:Expander>
+                </Frame>
+                <Frame Padding="5" BorderColor="Black" CornerRadius="10" Margin="0,0,0,15">
+                    <toolkit:Expander WidthRequest="300" >
+                        <toolkit:Expander.Header>
+                            <HorizontalStackLayout>
+                                <Label Text="Individual Prescriptions Report"
+                                    FontAttributes="Bold"
+                                    FontSize="Medium"
+                                    WidthRequest="275"/>
+                                <Label Text="{mi:Material ArrowDropDown}" />
+                            </HorizontalStackLayout>
+                        </toolkit:Expander.Header>
+                        <VerticalStackLayout>
+                            <HorizontalStackLayout Padding="0,10,0,0">
+                                <Label Text="Gives a total count of prescriptions for a selected household member."
+                               WidthRequest="300" />
+                            </HorizontalStackLayout>
+                            <Button Text="{mi:Material RunCircle, IconColor=#3E8EED}" BackgroundColor="White" HorizontalOptions="EndAndExpand" x:Name="MemberPresc" Clicked="MemberPresc_Clicked"/>
+                        </VerticalStackLayout>
+                    </toolkit:Expander>
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

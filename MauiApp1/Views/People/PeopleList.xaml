@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
+             x:Class="MedsTimer.Views.People.PeopleList"
+             Title="PeopleList">
+    <ScrollView>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal" BackgroundColor="#3E8EED">
+                <Button Text="{mi:Material Logout}" x:Name="Logout" HorizontalOptions="StartAndExpand" TextColor="White" Margin="10" Clicked="Logout_Clicked" Padding="3"/>
+                <Button Text="{mi:Material Newspaper}" x:Name="Reporting" Clicked="Reporting_Clicked"/>
+                <VerticalStackLayout>
+                    <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="0,7.5,0,0">
+                        <Button Text="{mi:Material Medication, IconSize=25}" Margin="-5,0,-15,0" BackgroundColor="Transparent" Clicked="ViewAllMeds_Clicked"/>
+                        <Button Text="{mi:Material Medication, IconSize=25}" Margin="-15,0,0,0" BackgroundColor="Transparent" Clicked="ViewAllMeds_Clicked"/>
+                    </HorizontalStackLayout>
+                    <Button Text="{mi:Material Medication, IconSize=25}" Margin="-5,-30,0,0" BackgroundColor="Transparent" Clicked="ViewAllMeds_Clicked"/>
+                </VerticalStackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand" HorizontalOptions="Center">
+                <Label x:Name="lblhousehold" Text="House Hold Members" FontSize="Title" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" TextDecorations="Underline" Margin="0,10,0,15"/>
+                <CollectionView x:Name="Household" SelectedItem="{Binding SelectedMember}" SelectionMode="Single" SelectionChanged="Household_SelectionChanged">
+                    <CollectionView.ItemTemplate >
+                        <DataTemplate>
+                            <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                                <Border
+                                Stroke="black"
+                                StrokeThickness="2"
+                                Padding="16,8"
+                                HorizontalOptions="Center"
+                                WidthRequest="305">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="5" />
+                                    </Border.StrokeShape>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                        <Label 
+                                        FontSize="Large"
+                                        Text="{Binding MemberFName}"
+                                        VerticalOptions="CenterAndExpand"
+                                        />
+                                        
+                                    </StackLayout>
+
+                                </Border>
+                                <Button Text="{mi:Material Delete, IconSize=25, IconColor=Red}" BackgroundColor="Transparent" WidthRequest="45" BindingContext="{Binding MemberId}" Clicked="Button_Clicked"/>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup Name="CommonStates">
+                                        <VisualState Name="Normal" />
+                                        <VisualState Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="Transparent" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </HorizontalStackLayout>
+
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="End">
+                <Button
+                    WidthRequest="80"
+                    HeightRequest="80"
+                    CornerRadius="40"
+                    Text="{mi:Material PersonAdd}"
+                    FontSize="40"
+                    VerticalOptions="Center"
+                    HorizontalOptions="EndAndExpand"
+                    Margin="15"
+                    x:Name="AddMember"
+                    Clicked="AddMember_Clicked"
+                />
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

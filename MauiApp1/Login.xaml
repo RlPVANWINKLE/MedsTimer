@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MedsTimer.Login"
+             Title=""
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             >
+    <ContentPage.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="#3E8EED" />
+    </ContentPage.Behaviors>
+    <StackLayout Orientation="Vertical" BackgroundColor="#3E8EED">
+        <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand" Margin="0,50,0,0">
+            <Image Source="/Resources/Images/rxtimer.jpg" Aspect="Center" Scale=".50"/>
+            <Button Text="Login" x:Name="Loginbtn" Clicked="Loginbtn_Clicked" TextColor="Black" BackgroundColor="White" WidthRequest="175"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

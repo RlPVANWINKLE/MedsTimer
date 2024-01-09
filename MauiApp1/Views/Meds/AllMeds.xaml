@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
+             x:Class="MedsTimer.Views.Meds.AllMeds"
+             Title="AllMeds">
+    <ScrollView>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal" BackgroundColor="#3E8EED">
+                <Button Text="{mi:Material ArrowBack, IconAutoScaling=True}" x:Name="Back" HorizontalOptions="StartAndExpand" TextColor="White" Margin="10,0,0,0" Clicked="Back_Clicked"/>
+                <SearchBar x:Name="SearchBar" Placeholder="Search Medications" WidthRequest="200" TextColor="White" PlaceholderColor="White" IsTextPredictionEnabled="True" TextChanged="SearchBar_TextChanged" CancelButtonColor="White" />
+            </StackLayout>
+            <StackLayout Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="Center" Margin="0,15,0,0">
+                <Label x:Name="lblPrescription" Text="All Medications" FontSize="Title" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" TextDecorations="Underline" Margin="0,0,0,15"/>
+                <CollectionView x:Name="_Medications" SelectedItem="{Binding SelectedMedication}" SelectionMode="Single" SelectionChanged="_Medications_SelectionChanged">
+                    <CollectionView.ItemTemplate >
+                        <DataTemplate>
+                            <Border
+                                Stroke="black"
+                                StrokeThickness="2"
+                                Padding="16,8"
+                                HorizontalOptions="Center"
+                                WidthRequest="350"
+                                BackgroundColor="{Binding StatusColor}">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="5" />
+                                </Border.StrokeShape>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" >
+                                    <Label 
+                                        FontSize="Large"
+                                        Text="{Binding MedicationName}"
+                                        VerticalOptions="CenterAndExpand"
+                                        WidthRequest="150"
+                                        HorizontalTextAlignment="Center"
+                                        Margin="0,0,15,0"
+                                        />
+                                    <Label FontSize="Large" Text="-" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                                    <Label Text="{Binding NumberofTimesaDay}"
+                                       VerticalOptions="CenterAndExpand"
+                                       HorizontalTextAlignment="Center"
+                                       Margin="15,0,0,0"
+                                       FontSize="Large"
+                                       />
+                                    <Label Text=" Per Day"
+                                       VerticalOptions="CenterAndExpand"
+                                       HorizontalTextAlignment="Center"
+                                       FontSize="Large"
+                                       />
+                                </StackLayout>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup Name="CommonStates">
+                                        <VisualState Name="Normal" />
+                                        <VisualState Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="Transparent" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand" HorizontalOptions="Center">
+                <CollectionView x:Name="_CoughAndColdMedications" SelectedItem="{Binding SelectedMedication}" SelectionMode="Single" SelectionChanged="_CoughAndColdMedications_SelectionChanged">
+                    <CollectionView.ItemTemplate >
+                        <DataTemplate>
+                            <Border
+                                Stroke="black"
+                                StrokeThickness="2"
+                                Padding="16,8"
+                                HorizontalOptions="Center"
+                                WidthRequest="350">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="5"/>
+                                </Border.StrokeShape>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                    <Label 
+                                    FontSize="Large"
+                                    Text="{Binding MedicationName}"
+                                    VerticalOptions="CenterAndExpand"
+                                    />
+                                    <Label FontSize="Large" Text="-" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalOptions="Center" Margin="15,0,0,0"/>
+                                    <Label  FontSize="Large" Text="Every " HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Margin="15,0,0,0" VerticalOptions="Center"/>
+                                    <Label Text="{Binding HowOften}"
+                                       VerticalOptions="Center"
+                                       FontSize="Large"
+                                       />
+                                    <Label FontSize="Large" Text=" hours" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+                                </StackLayout>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup Name="test">
+                                        <VisualState Name="Normal" />
+                                        <VisualState Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="Transparent" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
